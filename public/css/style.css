@@ -1,0 +1,280 @@
+:root {
+  --primary-color: hsl(147, 56%, 50%);
+  --black: hsl(0, 0%, 14%);
+  --dark-gray: hsl(0, 0%, 21%);
+  --medium-gray: hsl(0, 0%, 29%);
+  --light-gray: hsl(0, 0%, 42%);
+  --white: hsl(0, 0%, 96%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--dark-gray);
+  font-family: "Fira Sans", "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--medium-gray);
+  text-decoration: none;
+}
+
+.container {
+  min-height: calc(100vh - 69px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+  text-align: center;
+}
+
+h1.logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+/* Nav */
+.nav ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav li {
+  list-style-type: none;
+  margin: 0 8px;
+}
+
+.nav li a {
+  font-size: 18px;
+}
+
+.nav li a:hover {
+  color: var(--primary-color);
+}
+
+.nav li a.btn-scrape {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 4px 8px;
+}
+
+.nav li a.btn-scrape:hover {
+  background-color: hsl(147, 40%, 43%);
+}
+
+/* News Grid */
+.news-grid {
+  padding: 24px;
+}
+
+.card {
+  background-color: var(--white);
+  border-bottom: 8px solid var(--primary-color);
+}
+
+.card:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content h2 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.card-content a:hover {
+  color: var(--primary-color);
+}
+
+.card-content .btn {
+  align-self: flex-end;
+  margin-top: 12px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: hsl(0, 0%, 99%);
+  font-size: 16px;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.modal-header h3 {
+  font-weight: 400;
+}
+
+.modal-header h3+.close {
+  margin-left: 12px;
+}
+
+/* Comment Form */
+.comment-form {
+  margin-top: 10px;
+}
+
+.comment-form label,
+.comment-form input,
+.comment-form textarea {
+  display: block;
+  width: 100%;
+}
+
+.comment-form label {
+  margin-bottom: 4px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  border: 1px solid hsl(0, 0%, 90%);
+  font-size: 14px;
+  font-weight: 200;
+  margin-bottom: 12px;
+  min-height: 42px;
+  padding: 8px;
+}
+
+.comment-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Comments Section */
+.comments {
+  margin-top: 40px;
+}
+
+.comment {
+  background-color: var(--white);
+  border-radius: 5%;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.comment:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment div+div {
+  margin-left: 12px;
+}
+
+.comment .btn-delete {
+  background: none;
+  border: none;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--black);
+  color: var(--light-gray);
+  font-size: 14px;
+  height: 69px;
+  padding: 24px;
+  text-align: center;
+}
+
+/* Utilities */
+.btn {
+  background-color: var(--light-gray);
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: hsl(147, 40%, 43%);
+}
+
+.highlight-text {
+  color: var(--primary-color);
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    padding: 0 24px;
+  }
+
+  h1.logo {
+    margin-right: 12px;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+
+  .card:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
